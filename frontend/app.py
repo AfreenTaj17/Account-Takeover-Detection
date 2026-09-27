@@ -13,6 +13,7 @@ API_DIR = BASE_DIR.parent / "api"
 DB_PATH = API_DIR / "ato_monitoring.db"
 
 API_URL = "https://ato-detection-api.vercel.app"
+st.write("DEPLOYED API:", API_URL)
 
 
 st.set_page_config(
