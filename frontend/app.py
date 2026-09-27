@@ -35,386 +35,437 @@ if "prediction_history" not in st.session_state:
 # CUSTOM CSS
 # =========================================================
 
-st.markdown("""
-<style>
+st.markdown(
+    """
+    <style>
 
-/* Remove default UI noise */
-#MainMenu {
-    visibility: hidden;
-}
+    /* =====================================================
+       HIDE STREAMLIT DEFAULT ELEMENTS
+       ===================================================== */
 
-footer {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
-
-
-/* =====================================================
-   BACKGROUND
-   ===================================================== */
-
-.stApp {
-    background: linear-gradient(
-        -45deg,
-        #0f172a,
-        #020617,
-        #1e293b,
-        #111827
-    );
-
-    background-size: 400% 400%;
-    animation: gradientFlow 18s ease infinite;
-    color: white;
-}
-
-@keyframes gradientFlow {
-
-    0% {
-        background-position: 0% 50%;
+    #MainMenu {
+        visibility: hidden;
     }
 
-    50% {
-        background-position: 100% 50%;
+    footer {
+        visibility: hidden;
     }
 
-    100% {
-        background-position: 0% 50%;
+    header {
+        visibility: hidden;
     }
 
-}
 
+    /* =====================================================
+       MAIN BACKGROUND
+       ===================================================== */
 
-/* =====================================================
-   FLOATING GLOW
-   ===================================================== */
+    .stApp {
+        background:
+            linear-gradient(
+                -45deg,
+                #0f172a,
+                #020617,
+                #1e293b,
+                #111827
+            );
 
-.stApp::before {
+        background-size: 400% 400%;
 
-    content: "";
+        animation:
+            gradientFlow 18s ease infinite;
 
-    position: fixed;
-
-    width: 650px;
-    height: 650px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(59,130,246,0.18),
-            transparent 60%
-        );
-
-    top: -120px;
-    left: -120px;
-
-    animation: floatGlow 20s linear infinite;
-
-    z-index: 0;
-}
-
-@keyframes floatGlow {
-
-    0% {
-        transform: translate(0,0);
+        color: white;
     }
 
-    50% {
-        transform: translate(350px,220px);
+
+    @keyframes gradientFlow {
+
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
     }
 
-    100% {
-        transform: translate(0,0);
+
+    /* =====================================================
+       FLOATING BACKGROUND GLOW
+       ===================================================== */
+
+    .stApp::before {
+
+        content: "";
+
+        position: fixed;
+
+        width: 650px;
+        height: 650px;
+
+        background:
+            radial-gradient(
+                circle,
+                rgba(59,130,246,0.18),
+                transparent 60%
+            );
+
+        top: -120px;
+        left: -120px;
+
+        animation:
+            floatGlow 20s linear infinite;
+
+        z-index: 0;
     }
 
-}
 
+    @keyframes floatGlow {
 
-/* =====================================================
-   MAIN CONTAINER
-   ===================================================== */
+        0% {
+            transform: translate(0,0);
+        }
 
-.block-container {
+        50% {
+            transform: translate(350px,220px);
+        }
 
-    padding-top: 2rem;
-
-    position: relative;
-
-    z-index: 1;
-}
-
-
-/* =====================================================
-   CARD
-   ===================================================== */
-
-.card {
-
-    background:
-        rgba(255,255,255,0.06);
-
-    border-radius: 20px;
-
-    padding: 24px;
-
-    border:
-        2px solid rgba(255,255,255,0.18);
-
-    box-shadow:
-
-        0 8px 30px rgba(0,0,0,0.5),
-
-        inset
-        0 0 0 1px
-        rgba(255,255,255,0.05);
-
-    backdrop-filter: blur(12px);
-
-    margin-bottom: 20px;
-
-    transition:
-        all 0.3s ease;
-}
-
-.card:hover {
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-
-        0 14px 45px rgba(0,0,0,0.7),
-
-        0 0 14px
-        rgba(59,130,246,0.2);
-}
-
-
-/* =====================================================
-   TITLE
-   ===================================================== */
-
-.title-text {
-
-    font-size: 42px;
-
-    font-weight: 800;
-}
-
-.sub-text {
-
-    color: #cbd5e1;
-
-    font-size: 16px;
-}
-
-
-/* =====================================================
-   INPUT CONTAINER
-   ===================================================== */
-
-[data-testid="stVerticalBlock"] > div {
-
-    border:
-        2px solid
-        rgba(255,255,255,0.14);
-
-    border-radius: 16px;
-
-    padding: 12px;
-
-    box-shadow:
-        0 6px 25px
-        rgba(0,0,0,0.4);
-}
-
-
-/* =====================================================
-   METRICS
-   ===================================================== */
-
-[data-testid="stMetric"] {
-
-    background:
-        rgba(255,255,255,0.08);
-
-    border:
-        2px solid
-        rgba(255,255,255,0.18);
-
-    padding: 14px;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.35);
-}
-
-
-/* =====================================================
-   SLIDER
-   ===================================================== */
-
-.stSlider > div {
-
-    border:
-        1px solid
-        rgba(255,255,255,0.2);
-
-    border-radius: 12px;
-
-    padding: 6px;
-}
-
-
-/* =====================================================
-   STATUS CARD
-   ===================================================== */
-
-.status-card {
-
-    padding: 12px 18px;
-
-    border-radius: 12px;
-
-    margin-bottom: 20px;
-
-    background:
-        rgba(255,255,255,0.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.15);
-}
-
-
-/* =====================================================
-   BLOCK PULSE
-   ===================================================== */
-
-.pulse-container {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    margin-top: 30px;
-}
-
-.pulse {
-
-    width: 120px;
-
-    height: 120px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(239,68,68,0.25);
-
-    position: relative;
-}
-
-.pulse::before,
-.pulse::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 120px;
-
-    height: 120px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(239,68,68,0.5);
-
-    animation:
-        pulseAnim 1.8s infinite;
-}
-
-.pulse::after {
-
-    animation-delay:
-        0.9s;
-}
-
-@keyframes pulseAnim {
-
-    0% {
-
-        transform:
-            scale(0.6);
-
-        opacity:
-            0.7;
+        100% {
+            transform: translate(0,0);
+        }
     }
 
-    70% {
 
-        transform:
-            scale(2.6);
+    /* =====================================================
+       MAIN CONTENT
+       ===================================================== */
 
-        opacity:
-            0;
+    .block-container {
+
+        padding-top: 2rem;
+
+        position: relative;
+
+        z-index: 1;
     }
 
-    100% {
 
-        opacity:
-            0;
+    /* =====================================================
+       HERO CARD
+       ===================================================== */
+
+    .hero-card {
+
+        background:
+            rgba(255,255,255,0.06);
+
+        border:
+            1px solid rgba(255,255,255,0.16);
+
+        border-radius: 22px;
+
+        padding: 32px;
+
+        margin-bottom: 20px;
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,0.45);
+
+        backdrop-filter:
+            blur(14px);
     }
-}
 
 
-/* =====================================================
-   SECTION HEADERS
-   ===================================================== */
+    .hero-title {
 
-.section-title {
+        font-size: 42px;
 
-    font-size: 24px;
+        font-weight: 800;
 
-    font-weight: 700;
+        line-height: 1.15;
 
-    margin-top: 20px;
+        margin-bottom: 10px;
 
-    margin-bottom: 15px;
-}
+        color: white;
+    }
 
-</style>
-""", unsafe_allow_html=True)
+
+    .hero-subtitle {
+
+        font-size: 16px;
+
+        color: #cbd5e1;
+
+        line-height: 1.6;
+
+        margin: 0;
+    }
+
+
+    /* =====================================================
+       API STATUS
+       ===================================================== */
+
+    .api-status {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 8px 14px;
+
+        margin-bottom: 22px;
+
+        border-radius: 999px;
+
+        background:
+            rgba(34,197,94,0.10);
+
+        border:
+            1px solid rgba(34,197,94,0.30);
+
+        color: #86efac;
+
+        font-size: 14px;
+
+        font-weight: 600;
+    }
+
+
+    .status-dot {
+
+        width: 9px;
+
+        height: 9px;
+
+        border-radius: 50%;
+
+        background: #22c55e;
+
+        box-shadow:
+            0 0 10px rgba(34,197,94,0.8);
+    }
+
+
+    /* =====================================================
+       SECTION CARD
+       ===================================================== */
+
+    .section-card {
+
+        background:
+            rgba(255,255,255,0.05);
+
+        border:
+            1px solid rgba(255,255,255,0.13);
+
+        border-radius: 18px;
+
+        padding: 22px;
+
+        margin-bottom: 20px;
+
+        box-shadow:
+            0 8px 28px rgba(0,0,0,0.35);
+
+        backdrop-filter:
+            blur(10px);
+    }
+
+
+    /* =====================================================
+       METRICS
+       ===================================================== */
+
+    [data-testid="stMetric"] {
+
+        background:
+            rgba(255,255,255,0.07);
+
+        border:
+            1px solid rgba(255,255,255,0.15);
+
+        padding: 14px;
+
+        border-radius: 15px;
+
+        box-shadow:
+            0 5px 18px rgba(0,0,0,0.30);
+    }
+
+
+    /* =====================================================
+       INPUT CONTAINERS
+       ===================================================== */
+
+    [data-testid="stVerticalBlock"] > div {
+
+        border-radius: 14px;
+    }
+
+
+    /* =====================================================
+       SLIDERS
+       ===================================================== */
+
+    .stSlider > div {
+
+        border:
+            1px solid rgba(255,255,255,0.15);
+
+        border-radius: 12px;
+
+        padding: 6px;
+    }
+
+
+    /* =====================================================
+       BLOCK PULSE
+       ===================================================== */
+
+    .pulse-container {
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        margin-top: 30px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .pulse {
+
+        width: 110px;
+
+        height: 110px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(239,68,68,0.25);
+
+        position: relative;
+    }
+
+
+    .pulse::before,
+    .pulse::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 110px;
+
+        height: 110px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(239,68,68,0.45);
+
+        animation:
+            pulseAnim 1.8s infinite;
+    }
+
+
+    .pulse::after {
+
+        animation-delay:
+            0.9s;
+    }
+
+
+    @keyframes pulseAnim {
+
+        0% {
+
+            transform:
+                scale(0.6);
+
+            opacity:
+                0.7;
+        }
+
+        70% {
+
+            transform:
+                scale(2.5);
+
+            opacity:
+                0;
+        }
+
+        100% {
+
+            opacity:
+                0;
+        }
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .custom-footer {
+
+        text-align: center;
+
+        color: #64748b;
+
+        font-size: 13px;
+
+        padding: 20px 0 10px;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # =========================================================
-# HEADER
+# HERO HEADER
+# =========================================================
+#
+# IMPORTANT:
+# This is the ONLY place where the subtitle HTML exists.
+# It is rendered using unsafe_allow_html=True.
 # =========================================================
 
 st.markdown(
     """
-    <div class="card">
-        <div class="title-text">
+    <div class="hero-card">
+
+        <div class="hero-title">
             🔐 Real-Time Account Takeover Detection
         </div>
 
-        <div class="sub-text">
+        <p class="hero-subtitle">
             Production-grade risk engine with strict rules,
             anomaly detection, and decision intelligence.
-        </div>
+        </p>
+
     </div>
     """,
     unsafe_allow_html=True
 )
 
+
 # =========================================================
-# API STATUS
+# LIVE API STATUS
 # =========================================================
 
 try:
@@ -426,32 +477,47 @@ try:
 
     if health_response.status_code == 200:
 
-        st.success(
-            "🟢 Risk Engine Online — Connected to Live API"
+        st.markdown(
+            """
+            <div class="api-status">
+                <span class="status-dot"></span>
+                Risk Engine Online — Connected to Live API
+            </div>
+            """,
+            unsafe_allow_html=True
         )
+
+        api_online = True
 
     else:
 
         st.warning(
-            "🟡 Risk Engine responded but returned an unexpected status."
+            "🟡 Risk Engine responded with an unexpected status."
         )
 
-except Exception:
+        api_online = False
+
+except requests.exceptions.RequestException:
 
     st.error(
         "🔴 Risk Engine Offline — Unable to connect to the live API."
     )
 
-
-# =========================================================
-# LOGIN INPUT + RESULT
-# =========================================================
-
-left, right = st.columns([1, 2])
+    api_online = False
 
 
 # =========================================================
-# INPUT PANEL
+# MAIN COLUMNS
+# =========================================================
+
+left, right = st.columns(
+    [1, 2],
+    gap="large"
+)
+
+
+# =========================================================
+# LOGIN EVENT INPUT
 # =========================================================
 
 with left:
@@ -460,60 +526,68 @@ with left:
         "### 🧾 Login Event Input"
     )
 
-    with st.container():
+    st.markdown(
+        '<div class="section-card">',
+        unsafe_allow_html=True
+    )
 
-        failed_attempts = st.slider(
-            "Failed Attempts",
-            0,
-            5,
-            1
-        )
+    failed_attempts = st.slider(
+        "Failed Attempts",
+        min_value=0,
+        max_value=5,
+        value=1
+    )
 
-        geo_velocity_flag = (
-            1
-            if st.toggle(
-                "Geo Velocity / New Location"
-            )
-            else 0
+    geo_velocity_flag = (
+        1
+        if st.toggle(
+            "Geo Velocity / New Location"
         )
+        else 0
+    )
 
-        device_novelty_flag = (
-            1
-            if st.toggle(
-                "New Device"
-            )
-            else 0
+    device_novelty_flag = (
+        1
+        if st.toggle(
+            "New Device"
         )
+        else 0
+    )
 
-        ip_risk = st.slider(
-            "IP Risk",
-            0,
-            5,
-            1
-        )
+    ip_risk = st.slider(
+        "IP Risk",
+        min_value=0,
+        max_value=5,
+        value=1
+    )
 
-        login_time_risk = st.slider(
-            "Login Time Risk",
-            0,
-            5,
-            1
-        )
+    login_time_risk = st.slider(
+        "Login Time Risk",
+        min_value=0,
+        max_value=5,
+        value=1
+    )
 
-        account_age_risk = st.slider(
-            "Account Age Risk",
-            0,
-            5,
-            1
-        )
+    account_age_risk = st.slider(
+        "Account Age Risk",
+        min_value=0,
+        max_value=5,
+        value=1
+    )
 
-        evaluate = st.button(
-            "🔍 Evaluate Login Risk",
-            use_container_width=True
-        )
+    evaluate = st.button(
+        "🔍 Evaluate Login Risk",
+        use_container_width=True
+    )
+
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
 
 
 # =========================================================
-# RESULT PANEL
+# RISK EVALUATION RESULT
 # =========================================================
 
 with right:
@@ -545,18 +619,16 @@ with right:
                 account_age_risk
         }
 
+
+        # -------------------------------------------------
+        # CALL LIVE BACKEND
+        # -------------------------------------------------
+
         try:
 
-            # -------------------------------------------------
-            # LIVE API REQUEST
-            # -------------------------------------------------
-
             response = requests.post(
-
                 f"{API_URL}/score_login",
-
                 json=payload,
-
                 timeout=15
             )
 
@@ -566,7 +638,7 @@ with right:
 
 
             # -------------------------------------------------
-            # RESPONSE DATA
+            # EXTRACT RESULT
             # -------------------------------------------------
 
             risk_score = result.get(
@@ -591,7 +663,7 @@ with right:
 
 
             # -------------------------------------------------
-            # SAVE TO SESSION HISTORY
+            # SAVE SESSION HISTORY
             # -------------------------------------------------
 
             history_record = {
@@ -629,6 +701,7 @@ with right:
                     decision
             }
 
+
             st.session_state.prediction_history.append(
                 history_record
             )
@@ -657,7 +730,7 @@ with right:
 
 
             # -------------------------------------------------
-            # DECISION DISPLAY
+            # DECISION MESSAGE
             # -------------------------------------------------
 
             if decision == "BLOCK":
@@ -666,11 +739,16 @@ with right:
                     f"🚫 {message}"
                 )
 
-                st.markdown("""
-                <div class="pulse-container">
-                    <div class="pulse"></div>
-                </div>
-                """, unsafe_allow_html=True)
+                st.markdown(
+                    """
+                    <div class="pulse-container">
+
+                        <div class="pulse"></div>
+
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
 
                 st.markdown(
                     "### 🚨 High Risk Detected"
@@ -688,7 +766,7 @@ with right:
                 )
 
 
-            else:
+            elif decision == "ALLOW":
 
                 st.success(
                     f"✅ {message}"
@@ -696,6 +774,13 @@ with right:
 
                 st.markdown(
                     "### ✅ Login Allowed"
+                )
+
+
+            else:
+
+                st.info(
+                    message
                 )
 
 
@@ -709,7 +794,8 @@ with right:
 
             st.dataframe(
                 pd.DataFrame([payload]),
-                use_container_width=True
+                use_container_width=True,
+                hide_index=True
             )
 
 
@@ -730,18 +816,8 @@ with right:
         except requests.exceptions.HTTPError as e:
 
             st.error(
-                f"🔴 API returned an error: {e}"
+                f"🔴 API returned an HTTP error: {e}"
             )
-
-            try:
-
-                st.json(
-                    response.json()
-                )
-
-            except Exception:
-
-                pass
 
 
         except Exception as e:
@@ -881,7 +957,9 @@ if history:
             ascending=False
         ).head(10),
 
-        use_container_width=True
+        use_container_width=True,
+
+        hide_index=True
     )
 
 
@@ -897,9 +975,12 @@ else:
 # FOOTER
 # =========================================================
 
-st.markdown("---")
-
-st.caption(
-    "Account Takeover Detection • "
-    "FastAPI Risk Engine + Streamlit Monitoring Interface"
+st.markdown(
+    """
+    <div class="custom-footer">
+        Account Takeover Detection •
+        FastAPI Risk Engine + Streamlit Monitoring Interface
+    </div>
+    """,
+    unsafe_allow_html=True
 )
