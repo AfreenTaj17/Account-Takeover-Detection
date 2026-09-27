@@ -1,4 +1,4 @@
-```python
+
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
@@ -265,5 +265,4 @@ def get_predictions():
         "message": "Prediction history is disabled for the serverless demo.",
         "predictions": []
     }
-```
 
