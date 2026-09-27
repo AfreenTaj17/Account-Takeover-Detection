@@ -39,10 +39,6 @@ st.markdown(
     """
     <style>
 
-    /* =====================================================
-       HIDE STREAMLIT DEFAULT ELEMENTS
-       ===================================================== */
-
     #MainMenu {
         visibility: hidden;
     }
@@ -55,11 +51,6 @@ st.markdown(
         visibility: hidden;
     }
 
-
-    /* =====================================================
-       MAIN BACKGROUND
-       ===================================================== */
-
     .stApp {
         background:
             linear-gradient(
@@ -71,13 +62,9 @@ st.markdown(
             );
 
         background-size: 400% 400%;
-
-        animation:
-            gradientFlow 18s ease infinite;
-
+        animation: gradientFlow 18s ease infinite;
         color: white;
     }
-
 
     @keyframes gradientFlow {
 
@@ -92,12 +79,8 @@ st.markdown(
         100% {
             background-position: 0% 50%;
         }
+
     }
-
-
-    /* =====================================================
-       FLOATING BACKGROUND GLOW
-       ===================================================== */
 
     .stApp::before {
 
@@ -118,12 +101,10 @@ st.markdown(
         top: -120px;
         left: -120px;
 
-        animation:
-            floatGlow 20s linear infinite;
+        animation: floatGlow 20s linear infinite;
 
         z-index: 0;
     }
-
 
     @keyframes floatGlow {
 
@@ -138,26 +119,16 @@ st.markdown(
         100% {
             transform: translate(0,0);
         }
+
     }
 
-
-    /* =====================================================
-       MAIN CONTENT
-       ===================================================== */
-
     .block-container {
-
         padding-top: 2rem;
-
         position: relative;
-
         z-index: 1;
     }
 
-
-    /* =====================================================
-       HERO CARD
-       ===================================================== */
+    /* HERO */
 
     .hero-card {
 
@@ -169,31 +140,26 @@ st.markdown(
 
         border-radius: 22px;
 
-        padding: 32px;
+        padding: 30px;
 
-        margin-bottom: 20px;
+        margin-bottom: 18px;
 
         box-shadow:
             0 12px 35px rgba(0,0,0,0.45);
 
-        backdrop-filter:
-            blur(14px);
+        backdrop-filter: blur(14px);
     }
-
 
     .hero-title {
 
-        font-size: 42px;
+        font-size: 40px;
 
         font-weight: 800;
 
-        line-height: 1.15;
-
-        margin-bottom: 10px;
+        line-height: 1.2;
 
         color: white;
     }
-
 
     .hero-subtitle {
 
@@ -201,15 +167,12 @@ st.markdown(
 
         color: #cbd5e1;
 
-        line-height: 1.6;
+        margin-top: 8px;
 
-        margin: 0;
+        line-height: 1.6;
     }
 
-
-    /* =====================================================
-       API STATUS
-       ===================================================== */
+    /* API STATUS */
 
     .api-status {
 
@@ -221,7 +184,7 @@ st.markdown(
 
         padding: 8px 14px;
 
-        margin-bottom: 22px;
+        margin-bottom: 20px;
 
         border-radius: 999px;
 
@@ -238,7 +201,6 @@ st.markdown(
         font-weight: 600;
     }
 
-
     .status-dot {
 
         width: 9px;
@@ -253,82 +215,37 @@ st.markdown(
             0 0 10px rgba(34,197,94,0.8);
     }
 
-
-    /* =====================================================
-       SECTION CARD
-       ===================================================== */
-
-    .section-card {
-
-        background:
-            rgba(255,255,255,0.05);
-
-        border:
-            1px solid rgba(255,255,255,0.13);
-
-        border-radius: 18px;
-
-        padding: 22px;
-
-        margin-bottom: 20px;
-
-        box-shadow:
-            0 8px 28px rgba(0,0,0,0.35);
-
-        backdrop-filter:
-            blur(10px);
-    }
-
-
-    /* =====================================================
-       METRICS
-       ===================================================== */
+    /* METRICS */
 
     [data-testid="stMetric"] {
 
         background:
-            rgba(255,255,255,0.07);
+            rgba(255,255,255,0.08);
 
         border:
-            1px solid rgba(255,255,255,0.15);
+            1px solid rgba(255,255,255,0.18);
 
         padding: 14px;
 
-        border-radius: 15px;
+        border-radius: 16px;
 
         box-shadow:
-            0 5px 18px rgba(0,0,0,0.30);
+            0 5px 18px rgba(0,0,0,0.35);
     }
 
-
-    /* =====================================================
-       INPUT CONTAINERS
-       ===================================================== */
-
-    [data-testid="stVerticalBlock"] > div {
-
-        border-radius: 14px;
-    }
-
-
-    /* =====================================================
-       SLIDERS
-       ===================================================== */
+    /* SLIDERS */
 
     .stSlider > div {
 
         border:
-            1px solid rgba(255,255,255,0.15);
+            1px solid rgba(255,255,255,0.18);
 
         border-radius: 12px;
 
         padding: 6px;
     }
 
-
-    /* =====================================================
-       BLOCK PULSE
-       ===================================================== */
+    /* BLOCK PULSE */
 
     .pulse-container {
 
@@ -343,12 +260,11 @@ st.markdown(
         margin-bottom: 20px;
     }
 
-
     .pulse {
 
-        width: 110px;
+        width: 120px;
 
-        height: 110px;
+        height: 120px;
 
         border-radius: 50%;
 
@@ -358,7 +274,6 @@ st.markdown(
         position: relative;
     }
 
-
     .pulse::before,
     .pulse::after {
 
@@ -366,58 +281,40 @@ st.markdown(
 
         position: absolute;
 
-        width: 110px;
+        width: 120px;
 
-        height: 110px;
+        height: 120px;
 
         border-radius: 50%;
 
         background:
-            rgba(239,68,68,0.45);
+            rgba(239,68,68,0.5);
 
         animation:
             pulseAnim 1.8s infinite;
     }
 
-
     .pulse::after {
-
-        animation-delay:
-            0.9s;
+        animation-delay: 0.9s;
     }
-
 
     @keyframes pulseAnim {
 
         0% {
-
-            transform:
-                scale(0.6);
-
-            opacity:
-                0.7;
+            transform: scale(0.6);
+            opacity: 0.7;
         }
 
         70% {
-
-            transform:
-                scale(2.5);
-
-            opacity:
-                0;
+            transform: scale(2.6);
+            opacity: 0;
         }
 
         100% {
-
-            opacity:
-                0;
+            opacity: 0;
         }
+
     }
-
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
 
     .custom-footer {
 
@@ -441,26 +338,18 @@ st.markdown(
 # =========================================================
 #
 # IMPORTANT:
-# This is the ONLY place where the subtitle HTML exists.
-# It is rendered using unsafe_allow_html=True.
+# NO HTML IS USED HERE.
+# This prevents the <div> / <p> tags from ever appearing
+# on the frontend.
 # =========================================================
 
 st.markdown(
-    """
-    <div class="hero-card">
+    "## 🔐 Real-Time Account Takeover Detection"
+)
 
-        <div class="hero-title">
-            🔐 Real-Time Account Takeover Detection
-        </div>
-
-        <p class="hero-subtitle">
-            Production-grade risk engine with strict rules,
-            anomaly detection, and decision intelligence.
-        </p>
-
-    </div>
-    """,
-    unsafe_allow_html=True
+st.markdown(
+    "Production-grade risk engine with strict rules, "
+    "anomaly detection, and decision intelligence."
 )
 
 
@@ -477,17 +366,9 @@ try:
 
     if health_response.status_code == 200:
 
-        st.markdown(
-            """
-            <div class="api-status">
-                <span class="status-dot"></span>
-                Risk Engine Online — Connected to Live API
-            </div>
-            """,
-            unsafe_allow_html=True
+        st.success(
+            "🟢 Risk Engine Online — Connected to Live API"
         )
-
-        api_online = True
 
     else:
 
@@ -495,19 +376,15 @@ try:
             "🟡 Risk Engine responded with an unexpected status."
         )
 
-        api_online = False
-
 except requests.exceptions.RequestException:
 
     st.error(
         "🔴 Risk Engine Offline — Unable to connect to the live API."
     )
 
-    api_online = False
-
 
 # =========================================================
-# MAIN COLUMNS
+# MAIN LAYOUT
 # =========================================================
 
 left, right = st.columns(
@@ -522,20 +399,13 @@ left, right = st.columns(
 
 with left:
 
-    st.markdown(
-        "### 🧾 Login Event Input"
-    )
-
-    st.markdown(
-        '<div class="section-card">',
-        unsafe_allow_html=True
-    )
+    st.markdown("### 🧾 Login Event Input")
 
     failed_attempts = st.slider(
         "Failed Attempts",
-        min_value=0,
-        max_value=5,
-        value=1
+        0,
+        5,
+        1
     )
 
     geo_velocity_flag = (
@@ -556,23 +426,23 @@ with left:
 
     ip_risk = st.slider(
         "IP Risk",
-        min_value=0,
-        max_value=5,
-        value=1
+        0,
+        5,
+        1
     )
 
     login_time_risk = st.slider(
         "Login Time Risk",
-        min_value=0,
-        max_value=5,
-        value=1
+        0,
+        5,
+        1
     )
 
     account_age_risk = st.slider(
         "Account Age Risk",
-        min_value=0,
-        max_value=5,
-        value=1
+        0,
+        5,
+        1
     )
 
     evaluate = st.button(
@@ -580,21 +450,14 @@ with left:
         use_container_width=True
     )
 
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
-    )
-
 
 # =========================================================
-# RISK EVALUATION RESULT
+# RISK RESULT
 # =========================================================
 
 with right:
 
-    st.markdown(
-        "### 🔍 Risk Evaluation Result"
-    )
+    st.markdown("### 🔍 Risk Evaluation Result")
 
     if evaluate:
 
@@ -619,11 +482,6 @@ with right:
                 account_age_risk
         }
 
-
-        # -------------------------------------------------
-        # CALL LIVE BACKEND
-        # -------------------------------------------------
-
         try:
 
             response = requests.post(
@@ -635,11 +493,6 @@ with right:
             response.raise_for_status()
 
             result = response.json()
-
-
-            # -------------------------------------------------
-            # EXTRACT RESULT
-            # -------------------------------------------------
 
             risk_score = result.get(
                 "risk_score",
@@ -663,10 +516,10 @@ with right:
 
 
             # -------------------------------------------------
-            # SAVE SESSION HISTORY
+            # STORE RESULT
             # -------------------------------------------------
 
-            history_record = {
+            st.session_state.prediction_history.append({
 
                 "timestamp":
                     datetime.now().strftime(
@@ -699,12 +552,7 @@ with right:
 
                 "decision":
                     decision
-            }
-
-
-            st.session_state.prediction_history.append(
-                history_record
-            )
+            })
 
 
             # -------------------------------------------------
@@ -730,7 +578,7 @@ with right:
 
 
             # -------------------------------------------------
-            # DECISION MESSAGE
+            # DECISION
             # -------------------------------------------------
 
             if decision == "BLOCK":
@@ -742,9 +590,7 @@ with right:
                 st.markdown(
                     """
                     <div class="pulse-container">
-
                         <div class="pulse"></div>
-
                     </div>
                     """,
                     unsafe_allow_html=True
@@ -788,9 +634,7 @@ with right:
             # INPUT SUMMARY
             # -------------------------------------------------
 
-            st.markdown(
-                "### 📌 Input Summary"
-            )
+            st.markdown("### 📌 Input Summary")
 
             st.dataframe(
                 pd.DataFrame([payload]),
@@ -874,7 +718,6 @@ if history:
 
 
     d1, d2, d3, d4 = st.columns(4)
-
 
     d1.metric(
         "Total Evaluations",
@@ -975,12 +818,9 @@ else:
 # FOOTER
 # =========================================================
 
+st.markdown("---")
+
 st.markdown(
-    """
-    <div class="custom-footer">
-        Account Takeover Detection •
-        FastAPI Risk Engine + Streamlit Monitoring Interface
-    </div>
-    """,
-    unsafe_allow_html=True
+    "Account Takeover Detection • "
+    "FastAPI Risk Engine + Streamlit Monitoring Interface"
 )
