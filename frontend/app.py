@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent
 API_DIR = BASE_DIR.parent / "api"
 DB_PATH = API_DIR / "ato_monitoring.db"
 
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://ato-detection-api.vercel.app"
 
 
 st.set_page_config(
