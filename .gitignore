@@ -1,0 +1,16 @@
+# Virtual environment
+venv/
+.venv/
+
+# Large training datasets
+data/
+
+# Runtime SQLite database
+api/ato_monitoring.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment/secrets
+.env
