@@ -1,6 +1,14 @@
 # Account Takeover Detection System
 
-A machine learning-based security project designed to detect risky login attempts and possible account takeover behavior using behavioral features, risk scoring, and adaptive authentication decisions.
+
+
+Machine learning-based account takeover detection system using behavioral login features, risk scoring, FastAPI backend, and Streamlit frontend.
+
+### 🚀 Try the Project
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://account-takeover-detection-app.streamlit.app/)
+
+[![API Docs](https://img.shields.io/badge/API%20Docs-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://ato-detection-api.vercel.app/docs)
 
 ## Project Overview
 
