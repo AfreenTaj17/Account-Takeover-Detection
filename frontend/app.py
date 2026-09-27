@@ -397,21 +397,23 @@ header {
 # HEADER
 # =========================================================
 
-st.markdown("""
-<div class="card">
 
-    <div class="title-text">
-        🔐 Real-Time Account Takeover Detection
+
+st.markdown(
+    """
+    <div class="card">
+        <div class="title-text">
+            🔐 Real-Time Account Takeover Detection
+        </div>
+
+        <div class="sub-text">
+            Production-grade risk engine with strict rules,
+            anomaly detection, and decision intelligence.
+        </div>
     </div>
-
-    <div class="sub-text">
-        Production-grade risk engine with strict rules,
-        anomaly detection, and decision intelligence.
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
-
+    """,
+    unsafe_allow_html=True
+)
 
 # =========================================================
 # API STATUS
