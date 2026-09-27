@@ -57,11 +57,10 @@ st.markdown(
 
 
     /* =====================================================
-       MAIN BACKGROUND
+       APPLICATION BACKGROUND
        ===================================================== */
 
     .stApp {
-
         background:
             linear-gradient(
                 -45deg,
@@ -73,8 +72,7 @@ st.markdown(
 
         background-size: 400% 400%;
 
-        animation:
-            gradientFlow 18s ease infinite;
+        animation: gradientFlow 18s ease infinite;
 
         color: white;
     }
@@ -93,7 +91,6 @@ st.markdown(
         100% {
             background-position: 0% 50%;
         }
-
     }
 
 
@@ -113,15 +110,14 @@ st.markdown(
         background:
             radial-gradient(
                 circle,
-                rgba(59,130,246,0.17),
+                rgba(59,130,246,0.16),
                 transparent 60%
             );
 
         top: -120px;
         left: -120px;
 
-        animation:
-            floatGlow 20s linear infinite;
+        animation: floatGlow 20s linear infinite;
 
         z-index: 0;
     }
@@ -140,144 +136,126 @@ st.markdown(
         100% {
             transform: translate(0, 0);
         }
-
     }
 
 
     /* =====================================================
-       MAIN CONTENT
+       PAGE SPACING
        ===================================================== */
 
     .block-container {
-
         padding-top: 2rem;
         padding-bottom: 2rem;
-
         position: relative;
-
         z-index: 1;
     }
 
 
     /* =====================================================
-       OUTER APPLICATION BORDER
+       OUTER BORDER
        ===================================================== */
 
-    .outer-shell {
+    [data-testid="stVerticalBlockBorderWrapper"] {
 
-        border:
-            1px solid rgba(255,255,255,0.20);
+        border-color:
+            rgba(255,255,255,0.18) !important;
 
-        border-radius: 28px;
-
-        padding: 26px;
+        border-radius:
+            22px !important;
 
         background:
             rgba(255,255,255,0.035);
 
         box-shadow:
-            0 18px 55px rgba(0,0,0,0.48);
+            0 12px 35px rgba(0,0,0,0.38);
 
         backdrop-filter:
-            blur(18px);
+            blur(12px);
 
         -webkit-backdrop-filter:
-            blur(18px);
-
-        margin-bottom: 25px;
+            blur(12px);
     }
 
 
     /* =====================================================
-       INNER GLASS BORDER
+       OUTER CONTAINER - STRONGER BORDER
        ===================================================== */
 
-    .inner-card {
+    .outer-container [data-testid="stVerticalBlockBorderWrapper"] {
 
         border:
-            1px solid rgba(255,255,255,0.17);
+            1px solid rgba(255,255,255,0.25) !important;
 
-        border-radius: 20px;
+        border-radius:
+            26px !important;
 
-        padding: 22px;
+        background:
+            rgba(255,255,255,0.025);
+
+        box-shadow:
+            0 18px 50px rgba(0,0,0,0.48);
+
+        padding:
+            10px;
+    }
+
+
+    /* =====================================================
+       INNER CARDS
+       ===================================================== */
+
+    .inner-card [data-testid="stVerticalBlockBorderWrapper"] {
+
+        border:
+            1px solid rgba(255,255,255,0.17) !important;
+
+        border-radius:
+            18px !important;
 
         background:
             rgba(255,255,255,0.055);
 
         box-shadow:
-            0 8px 25px rgba(0,0,0,0.28);
+            0 7px 22px rgba(0,0,0,0.28);
 
-        backdrop-filter:
-            blur(12px);
-
-        -webkit-backdrop-filter:
-            blur(12px);
-
-        margin-bottom: 20px;
+        padding:
+            6px;
     }
 
 
     /* =====================================================
-       CENTERED HERO
+       HERO TITLE
        ===================================================== */
 
     .hero-title {
-
         text-align: center;
-
-        font-size: 40px;
-
-        font-weight: 800;
-
-        line-height: 1.2;
-
         color: white;
-
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.2;
         margin-top: 5px;
-
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
 
     .hero-subtitle {
-
         text-align: center;
-
-        font-size: 16px;
-
         color: #cbd5e1;
-
+        font-size: 16px;
         line-height: 1.6;
-
         margin-bottom: 5px;
     }
 
 
     /* =====================================================
-       SECTION TITLES
+       SECTION HEADINGS
        ===================================================== */
 
-    .section-title {
-
-        font-size: 21px;
-
-        font-weight: 700;
-
-        color: white;
-
-        margin-bottom: 16px;
-    }
-
-
-    /* =====================================================
-       API STATUS
-       ===================================================== */
-
-    .api-status {
-
-        text-align: center;
-
-        margin-bottom: 20px;
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: white !important;
     }
 
 
@@ -293,26 +271,26 @@ st.markdown(
         border:
             1px solid rgba(255,255,255,0.18);
 
-        padding: 15px;
+        border-radius:
+            15px;
 
-        border-radius: 16px;
+        padding:
+            14px;
 
         box-shadow:
-            0 6px 20px rgba(0,0,0,0.30);
+            0 5px 18px rgba(0,0,0,0.28);
 
         backdrop-filter:
-            blur(10px);
+            blur(8px);
     }
 
 
     [data-testid="stMetricLabel"] {
-
         color: #cbd5e1 !important;
     }
 
 
     [data-testid="stMetricValue"] {
-
         color: white !important;
     }
 
@@ -326,9 +304,11 @@ st.markdown(
         border:
             1px solid rgba(255,255,255,0.14);
 
-        border-radius: 12px;
+        border-radius:
+            12px;
 
-        padding: 6px;
+        padding:
+            6px;
 
         background:
             rgba(255,255,255,0.025);
@@ -341,19 +321,23 @@ st.markdown(
 
     .stButton > button {
 
-        border-radius: 12px;
-
         border:
             1px solid rgba(255,255,255,0.22);
+
+        border-radius:
+            12px;
 
         background:
             rgba(59,130,246,0.20);
 
-        color: white;
+        color:
+            white;
 
-        font-weight: 700;
+        font-weight:
+            700;
 
-        padding: 11px 18px;
+        padding:
+            10px 18px;
 
         transition:
             all 0.2s ease;
@@ -385,12 +369,14 @@ st.markdown(
         border:
             1px solid rgba(255,255,255,0.14);
 
-        border-radius: 14px;
+        border-radius:
+            14px;
 
-        overflow: hidden;
+        overflow:
+            hidden;
 
         box-shadow:
-            0 6px 20px rgba(0,0,0,0.25);
+            0 5px 18px rgba(0,0,0,0.25);
     }
 
 
@@ -399,7 +385,6 @@ st.markdown(
        ===================================================== */
 
     [data-testid="stAlert"] {
-
         border-radius: 14px;
     }
 
@@ -416,7 +401,7 @@ st.markdown(
 
         align-items: center;
 
-        margin-top: 30px;
+        margin-top: 25px;
 
         margin-bottom: 20px;
     }
@@ -459,38 +444,25 @@ st.markdown(
 
 
     .pulse::after {
-
-        animation-delay:
-            0.9s;
+        animation-delay: 0.9s;
     }
 
 
     @keyframes pulseAnim {
 
         0% {
-
-            transform:
-                scale(0.6);
-
-            opacity:
-                0.7;
+            transform: scale(0.6);
+            opacity: 0.7;
         }
 
         70% {
-
-            transform:
-                scale(2.6);
-
-            opacity:
-                0;
+            transform: scale(2.6);
+            opacity: 0;
         }
 
         100% {
-
-            opacity:
-                0;
+            opacity: 0;
         }
-
     }
 
 
@@ -498,7 +470,7 @@ st.markdown(
        FOOTER
        ===================================================== */
 
-    .custom-footer {
+    .footer-text {
 
         text-align: center;
 
@@ -506,7 +478,8 @@ st.markdown(
 
         font-size: 13px;
 
-        padding: 10px 0 5px;
+        padding:
+            8px 0 2px;
     }
 
     </style>
@@ -516,571 +489,543 @@ st.markdown(
 
 
 # =========================================================
-# OUTER APPLICATION SHELL
+# REAL OUTER CONTAINER
+# =========================================================
+#
+# EVERYTHING BELOW IS ACTUALLY INSIDE THIS CONTAINER.
+# This is the important change.
 # =========================================================
 
-st.markdown(
-    '<div class="outer-shell">',
-    unsafe_allow_html=True
+outer = st.container(
+    border=True
 )
 
 
-# =========================================================
-# HERO SECTION
-# =========================================================
+with outer:
 
-st.markdown(
-    '<div class="inner-card">',
-    unsafe_allow_html=True
-)
+    # =====================================================
+    # HERO SECTION
+    # =====================================================
 
-st.markdown(
-    "## 🔐 Real-Time Account Takeover Detection"
-)
+    with st.container(
+        border=True
+    ):
 
-st.markdown(
-    "Production-grade risk engine with strict rules, "
-    "anomaly detection, and decision intelligence."
-)
-
-st.markdown(
-    "</div>",
-    unsafe_allow_html=True
-)
-
-
-# =========================================================
-# LIVE API STATUS
-# =========================================================
-
-try:
-
-    health_response = requests.get(
-        API_URL,
-        timeout=5
-    )
-
-    if health_response.status_code == 200:
-
-        st.success(
-            "🟢 Risk Engine Online — Connected to Live API"
+        st.markdown(
+            '<div class="hero-title">'
+            '🔐 Real-Time Account Takeover Detection'
+            '</div>',
+            unsafe_allow_html=True
         )
 
-    else:
-
-        st.warning(
-            "🟡 Risk Engine responded with an unexpected status."
+        st.markdown(
+            '<div class="hero-subtitle">'
+            'Production-grade risk engine with strict rules, '
+            'anomaly detection, and decision intelligence.'
+            '</div>',
+            unsafe_allow_html=True
         )
 
-except requests.exceptions.RequestException:
 
-    st.error(
-        "🔴 Risk Engine Offline — Unable to connect to the live API."
-    )
+    # =====================================================
+    # API STATUS
+    # =====================================================
 
+    try:
 
-# =========================================================
-# MAIN TWO-COLUMN SECTION
-# =========================================================
-
-left, right = st.columns(
-    [1, 2],
-    gap="large"
-)
-
-
-# =========================================================
-# LOGIN EVENT INPUT
-# =========================================================
-
-with left:
-
-    st.markdown(
-        '<div class="inner-card">',
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "### 🧾 Login Event Input"
-    )
-
-    failed_attempts = st.slider(
-        "Failed Attempts",
-        0,
-        5,
-        1
-    )
-
-    geo_velocity_flag = (
-        1
-        if st.toggle(
-            "Geo Velocity / New Location"
+        health_response = requests.get(
+            API_URL,
+            timeout=5
         )
-        else 0
-    )
 
-    device_novelty_flag = (
-        1
-        if st.toggle(
-            "New Device"
+        if health_response.status_code == 200:
+
+            st.success(
+                "🟢 Risk Engine Online — Connected to Live API"
+            )
+
+        else:
+
+            st.warning(
+                "🟡 Risk Engine responded with an unexpected status."
+            )
+
+    except requests.exceptions.RequestException:
+
+        st.error(
+            "🔴 Risk Engine Offline — Unable to connect to the live API."
         )
-        else 0
-    )
 
-    ip_risk = st.slider(
-        "IP Risk",
-        0,
-        5,
-        1
-    )
 
-    login_time_risk = st.slider(
-        "Login Time Risk",
-        0,
-        5,
-        1
-    )
+    # =====================================================
+    # TWO MAIN INNER SECTIONS
+    # =====================================================
 
-    account_age_risk = st.slider(
-        "Account Age Risk",
-        0,
-        5,
-        1
-    )
-
-    evaluate = st.button(
-        "🔍 Evaluate Login Risk",
-        use_container_width=True
-    )
-
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
+    left, right = st.columns(
+        [1, 2],
+        gap="large"
     )
 
 
-# =========================================================
-# RISK EVALUATION
-# =========================================================
+    # =====================================================
+    # LOGIN EVENT INPUT
+    # =====================================================
 
-with right:
+    with left:
 
-    st.markdown(
-        '<div class="inner-card">',
-        unsafe_allow_html=True
-    )
+        with st.container(
+            border=True
+        ):
 
-    st.markdown(
-        "### 🔍 Risk Evaluation Result"
-    )
-
-    if evaluate:
-
-        payload = {
-
-            "failed_attempts":
-                failed_attempts,
-
-            "geo_velocity_flag":
-                geo_velocity_flag,
-
-            "device_novelty_flag":
-                device_novelty_flag,
-
-            "ip_risk":
-                ip_risk,
-
-            "login_time_risk":
-                login_time_risk,
-
-            "account_age_risk":
-                account_age_risk
-        }
-
-
-        # -------------------------------------------------
-        # API REQUEST
-        # -------------------------------------------------
-
-        try:
-
-            response = requests.post(
-                f"{API_URL}/score_login",
-                json=payload,
-                timeout=15
+            st.markdown(
+                "### 🧾 Login Event Input"
             )
 
-            response.raise_for_status()
-
-            result = response.json()
-
-
-            # -------------------------------------------------
-            # RESPONSE VALUES
-            # -------------------------------------------------
-
-            risk_score = result.get(
-                "risk_score",
-                0
+            failed_attempts = st.slider(
+                "Failed Attempts",
+                0,
+                5,
+                1
             )
 
-            risk_percentage = result.get(
-                "risk_percentage",
-                0
-            )
-
-            decision = result.get(
-                "decision",
-                "UNKNOWN"
-            )
-
-            message = result.get(
-                "message",
-                "No explanation provided."
-            )
-
-
-            # -------------------------------------------------
-            # STORE RESULT
-            # -------------------------------------------------
-
-            st.session_state.prediction_history.append({
-
-                "timestamp":
-                    datetime.now().strftime(
-                        "%Y-%m-%d %H:%M:%S"
-                    ),
-
-                "failed_attempts":
-                    failed_attempts,
-
-                "geo_velocity_flag":
-                    geo_velocity_flag,
-
-                "device_novelty_flag":
-                    device_novelty_flag,
-
-                "ip_risk":
-                    ip_risk,
-
-                "login_time_risk":
-                    login_time_risk,
-
-                "account_age_risk":
-                    account_age_risk,
-
-                "risk_score":
-                    risk_score,
-
-                "risk_percentage":
-                    risk_percentage,
-
-                "decision":
-                    decision
-            })
-
-
-            # -------------------------------------------------
-            # RESULT METRICS
-            # -------------------------------------------------
-
-            c1, c2, c3 = st.columns(3)
-
-            c1.metric(
-                "Risk Score",
-                f"{risk_score:.4f}"
-            )
-
-            c2.metric(
-                "Risk %",
-                f"{risk_percentage:.2f}%"
-            )
-
-            c3.metric(
-                "Decision",
-                decision
-            )
-
-
-            # -------------------------------------------------
-            # DECISION
-            # -------------------------------------------------
-
-            if decision == "BLOCK":
-
-                st.error(
-                    f"🚫 {message}"
+            geo_velocity_flag = (
+                1
+                if st.toggle(
+                    "Geo Velocity / New Location"
                 )
+                else 0
+            )
 
-                st.markdown(
-                    """
-                    <div class="pulse-container">
-                        <div class="pulse"></div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
+            device_novelty_flag = (
+                1
+                if st.toggle(
+                    "New Device"
                 )
+                else 0
+            )
 
-                st.markdown(
-                    "### 🚨 High Risk Detected"
-                )
+            ip_risk = st.slider(
+                "IP Risk",
+                0,
+                5,
+                1
+            )
+
+            login_time_risk = st.slider(
+                "Login Time Risk",
+                0,
+                5,
+                1
+            )
+
+            account_age_risk = st.slider(
+                "Account Age Risk",
+                0,
+                5,
+                1
+            )
+
+            evaluate = st.button(
+                "🔍 Evaluate Login Risk",
+                use_container_width=True
+            )
 
 
-            elif decision == "MFA":
+    # =====================================================
+    # RISK EVALUATION RESULT
+    # =====================================================
 
-                st.warning(
-                    f"⚠️ {message}"
-                )
+    with right:
 
-                st.markdown(
-                    "### 🔐 MFA Required"
-                )
+        with st.container(
+            border=True
+        ):
+
+            st.markdown(
+                "### 🔍 Risk Evaluation Result"
+            )
+
+            if evaluate:
+
+                payload = {
+
+                    "failed_attempts":
+                        failed_attempts,
+
+                    "geo_velocity_flag":
+                        geo_velocity_flag,
+
+                    "device_novelty_flag":
+                        device_novelty_flag,
+
+                    "ip_risk":
+                        ip_risk,
+
+                    "login_time_risk":
+                        login_time_risk,
+
+                    "account_age_risk":
+                        account_age_risk
+                }
 
 
-            elif decision == "ALLOW":
+                # -------------------------------------------------
+                # API REQUEST
+                # -------------------------------------------------
 
-                st.success(
-                    f"✅ {message}"
-                )
+                try:
 
-                st.markdown(
-                    "### ✅ Login Allowed"
-                )
+                    response = requests.post(
+                        f"{API_URL}/score_login",
+                        json=payload,
+                        timeout=15
+                    )
+
+                    response.raise_for_status()
+
+                    result = response.json()
+
+
+                    # -------------------------------------------------
+                    # RESPONSE
+                    # -------------------------------------------------
+
+                    risk_score = result.get(
+                        "risk_score",
+                        0
+                    )
+
+                    risk_percentage = result.get(
+                        "risk_percentage",
+                        0
+                    )
+
+                    decision = result.get(
+                        "decision",
+                        "UNKNOWN"
+                    )
+
+                    message = result.get(
+                        "message",
+                        "No explanation provided."
+                    )
+
+
+                    # -------------------------------------------------
+                    # SAVE HISTORY
+                    # -------------------------------------------------
+
+                    st.session_state.prediction_history.append({
+
+                        "timestamp":
+                            datetime.now().strftime(
+                                "%Y-%m-%d %H:%M:%S"
+                            ),
+
+                        "failed_attempts":
+                            failed_attempts,
+
+                        "geo_velocity_flag":
+                            geo_velocity_flag,
+
+                        "device_novelty_flag":
+                            device_novelty_flag,
+
+                        "ip_risk":
+                            ip_risk,
+
+                        "login_time_risk":
+                            login_time_risk,
+
+                        "account_age_risk":
+                            account_age_risk,
+
+                        "risk_score":
+                            risk_score,
+
+                        "risk_percentage":
+                            risk_percentage,
+
+                        "decision":
+                            decision
+                    })
+
+
+                    # -------------------------------------------------
+                    # METRICS
+                    # -------------------------------------------------
+
+                    c1, c2, c3 = st.columns(3)
+
+                    c1.metric(
+                        "Risk Score",
+                        f"{risk_score:.4f}"
+                    )
+
+                    c2.metric(
+                        "Risk %",
+                        f"{risk_percentage:.2f}%"
+                    )
+
+                    c3.metric(
+                        "Decision",
+                        decision
+                    )
+
+
+                    # -------------------------------------------------
+                    # DECISION
+                    # -------------------------------------------------
+
+                    if decision == "BLOCK":
+
+                        st.error(
+                            f"🚫 {message}"
+                        )
+
+                        st.markdown(
+                            """
+                            <div class="pulse-container">
+                                <div class="pulse"></div>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+
+                        st.markdown(
+                            "### 🚨 High Risk Detected"
+                        )
+
+
+                    elif decision == "MFA":
+
+                        st.warning(
+                            f"⚠️ {message}"
+                        )
+
+                        st.markdown(
+                            "### 🔐 MFA Required"
+                        )
+
+
+                    elif decision == "ALLOW":
+
+                        st.success(
+                            f"✅ {message}"
+                        )
+
+                        st.markdown(
+                            "### ✅ Login Allowed"
+                        )
+
+
+                    else:
+
+                        st.info(
+                            message
+                        )
+
+
+                    # -------------------------------------------------
+                    # INPUT SUMMARY
+                    # -------------------------------------------------
+
+                    st.markdown(
+                        "### 📌 Input Summary"
+                    )
+
+                    st.dataframe(
+                        pd.DataFrame([payload]),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+
+
+                except requests.exceptions.Timeout:
+
+                    st.error(
+                        "⏱️ The risk engine took too long to respond."
+                    )
+
+
+                except requests.exceptions.ConnectionError:
+
+                    st.error(
+                        "🔴 Could not connect to the live ATO risk engine."
+                    )
+
+
+                except requests.exceptions.HTTPError as e:
+
+                    st.error(
+                        f"🔴 API returned an HTTP error: {e}"
+                    )
+
+
+                except Exception as e:
+
+                    st.error(
+                        f"Unexpected error: {e}"
+                    )
 
 
             else:
 
                 st.info(
-                    message
+                    "Configure the login event parameters and click "
+                    "**Evaluate Login Risk** to analyze the login."
+                )
+
+
+    # =====================================================
+    # MONITORING DASHBOARD
+    # =====================================================
+
+    with st.container(
+        border=True
+    ):
+
+        st.markdown(
+            "### 📊 Monitoring Dashboard"
+        )
+
+        history = st.session_state.prediction_history
+
+
+        if history:
+
+            df = pd.DataFrame(history)
+
+
+            # -------------------------------------------------
+            # DASHBOARD METRICS
+            # -------------------------------------------------
+
+            total_predictions = len(df)
+
+            blocked_count = len(
+                df[df["decision"] == "BLOCK"]
+            )
+
+            mfa_count = len(
+                df[df["decision"] == "MFA"]
+            )
+
+            allowed_count = len(
+                df[df["decision"] == "ALLOW"]
+            )
+
+
+            d1, d2, d3, d4 = st.columns(4)
+
+
+            d1.metric(
+                "Total Evaluations",
+                total_predictions
+            )
+
+            d2.metric(
+                "Blocked",
+                blocked_count
+            )
+
+            d3.metric(
+                "MFA",
+                mfa_count
+            )
+
+            d4.metric(
+                "Allowed",
+                allowed_count
+            )
+
+
+            # -------------------------------------------------
+            # CHARTS
+            # -------------------------------------------------
+
+            chart_left, chart_right = st.columns(2)
+
+
+            with chart_left:
+
+                st.markdown(
+                    "#### Decision Distribution"
+                )
+
+                decision_counts = (
+                    df["decision"]
+                    .value_counts()
+                )
+
+                st.bar_chart(
+                    decision_counts
+                )
+
+
+            with chart_right:
+
+                st.markdown(
+                    "#### Risk Percentage Trend"
+                )
+
+                chart_df = df.copy()
+
+                chart_df["timestamp"] = pd.to_datetime(
+                    chart_df["timestamp"]
+                )
+
+                chart_df = (
+                    chart_df
+                    .sort_values("timestamp")
+                    .set_index("timestamp")
+                )
+
+                st.line_chart(
+                    chart_df["risk_percentage"]
                 )
 
 
             # -------------------------------------------------
-            # INPUT SUMMARY
+            # RECENT PREDICTIONS
             # -------------------------------------------------
 
             st.markdown(
-                "### 📌 Input Summary"
+                "#### 🕐 Recent Predictions"
             )
 
             st.dataframe(
-                pd.DataFrame([payload]),
+                df.sort_values(
+                    "timestamp",
+                    ascending=False
+                ).head(10),
+
                 use_container_width=True,
+
                 hide_index=True
             )
 
 
-        except requests.exceptions.Timeout:
+        else:
 
-            st.error(
-                "⏱️ The risk engine took too long to respond."
+            st.info(
+                "No predictions yet. Run a login risk evaluation "
+                "to populate the monitoring dashboard."
             )
 
 
-        except requests.exceptions.ConnectionError:
-
-            st.error(
-                "🔴 Could not connect to the live ATO risk engine."
-            )
-
-
-        except requests.exceptions.HTTPError as e:
-
-            st.error(
-                f"🔴 API returned an HTTP error: {e}"
-            )
-
-
-        except Exception as e:
-
-            st.error(
-                f"Unexpected error: {e}"
-            )
-
-
-    else:
-
-        st.info(
-            "Configure the login event parameters and click "
-            "**Evaluate Login Risk** to analyze the login."
-        )
-
+    # =====================================================
+    # FOOTER
+    # =====================================================
 
     st.markdown(
-        "</div>",
+        "---"
+    )
+
+    st.markdown(
+        '<div class="footer-text">'
+        'Account Takeover Detection • '
+        'FastAPI Risk Engine + Streamlit Monitoring Interface'
+        '</div>',
         unsafe_allow_html=True
     )
-
-
-# =========================================================
-# MONITORING DASHBOARD
-# =========================================================
-
-st.markdown(
-    '<div class="inner-card">',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    "### 📊 Monitoring Dashboard"
-)
-
-history = st.session_state.prediction_history
-
-
-if history:
-
-    df = pd.DataFrame(history)
-
-
-    # -----------------------------------------------------
-    # DASHBOARD METRICS
-    # -----------------------------------------------------
-
-    total_predictions = len(df)
-
-    blocked_count = len(
-        df[df["decision"] == "BLOCK"]
-    )
-
-    mfa_count = len(
-        df[df["decision"] == "MFA"]
-    )
-
-    allowed_count = len(
-        df[df["decision"] == "ALLOW"]
-    )
-
-
-    d1, d2, d3, d4 = st.columns(4)
-
-
-    d1.metric(
-        "Total Evaluations",
-        total_predictions
-    )
-
-    d2.metric(
-        "Blocked",
-        blocked_count
-    )
-
-    d3.metric(
-        "MFA",
-        mfa_count
-    )
-
-    d4.metric(
-        "Allowed",
-        allowed_count
-    )
-
-
-    # -----------------------------------------------------
-    # CHARTS
-    # -----------------------------------------------------
-
-    chart_left, chart_right = st.columns(2)
-
-
-    with chart_left:
-
-        st.markdown(
-            "#### Decision Distribution"
-        )
-
-        decision_counts = (
-            df["decision"]
-            .value_counts()
-        )
-
-        st.bar_chart(
-            decision_counts
-        )
-
-
-    with chart_right:
-
-        st.markdown(
-            "#### Risk Percentage Trend"
-        )
-
-        chart_df = df.copy()
-
-        chart_df["timestamp"] = pd.to_datetime(
-            chart_df["timestamp"]
-        )
-
-        chart_df = (
-            chart_df
-            .sort_values("timestamp")
-            .set_index("timestamp")
-        )
-
-        st.line_chart(
-            chart_df["risk_percentage"]
-        )
-
-
-    # -----------------------------------------------------
-    # RECENT PREDICTIONS
-    # -----------------------------------------------------
-
-    st.markdown(
-        "#### 🕐 Recent Predictions"
-    )
-
-    st.dataframe(
-        df.sort_values(
-            "timestamp",
-            ascending=False
-        ).head(10),
-
-        use_container_width=True,
-
-        hide_index=True
-    )
-
-
-else:
-
-    st.info(
-        "No predictions yet. Run a login risk evaluation "
-        "to populate the monitoring dashboard."
-    )
-
-
-st.markdown(
-    "</div>",
-    unsafe_allow_html=True
-)
-
-
-# =========================================================
-# FOOTER
-# =========================================================
-
-st.markdown(
-    '<div class="custom-footer">',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    "Account Takeover Detection • "
-    "FastAPI Risk Engine + Streamlit Monitoring Interface"
-)
-
-st.markdown(
-    "</div>",
-    unsafe_allow_html=True
-)
-
-
-# =========================================================
-# CLOSE OUTER APPLICATION SHELL
-# =========================================================
-
-st.markdown(
-    "</div>",
-    unsafe_allow_html=True
-)
