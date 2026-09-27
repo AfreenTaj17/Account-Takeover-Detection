@@ -39,6 +39,10 @@ st.markdown(
     """
     <style>
 
+    /* =====================================================
+       GLOBAL
+       ===================================================== */
+
     #MainMenu {
         visibility: hidden;
     }
@@ -63,8 +67,10 @@ st.markdown(
 
         background-size: 400% 400%;
         animation: gradientFlow 18s ease infinite;
+
         color: white;
     }
+
 
     @keyframes gradientFlow {
 
@@ -81,6 +87,11 @@ st.markdown(
         }
 
     }
+
+
+    /* =====================================================
+       BACKGROUND GLOW
+       ===================================================== */
 
     .stApp::before {
 
@@ -106,6 +117,7 @@ st.markdown(
         z-index: 0;
     }
 
+
     @keyframes floatGlow {
 
         0% {
@@ -122,13 +134,24 @@ st.markdown(
 
     }
 
+
+    /* =====================================================
+       MAIN CONTENT
+       ===================================================== */
+
     .block-container {
+
         padding-top: 2rem;
+        padding-bottom: 2rem;
+
         position: relative;
         z-index: 1;
     }
 
-    /* HERO */
+
+    /* =====================================================
+       HERO CARD
+       ===================================================== */
 
     .hero-card {
 
@@ -142,13 +165,16 @@ st.markdown(
 
         padding: 30px;
 
-        margin-bottom: 18px;
+        margin-bottom: 20px;
 
         box-shadow:
             0 12px 35px rgba(0,0,0,0.45);
 
         backdrop-filter: blur(14px);
+
+        -webkit-backdrop-filter: blur(14px);
     }
+
 
     .hero-title {
 
@@ -159,7 +185,10 @@ st.markdown(
         line-height: 1.2;
 
         color: white;
+
+        margin-bottom: 8px;
     }
+
 
     .hero-subtitle {
 
@@ -167,12 +196,68 @@ st.markdown(
 
         color: #cbd5e1;
 
-        margin-top: 8px;
-
         line-height: 1.6;
+
+        margin-top: 5px;
     }
 
-    /* API STATUS */
+
+    /* =====================================================
+       GLASS CARD
+       ===================================================== */
+
+    .glass-card {
+
+        background:
+            rgba(255,255,255,0.055);
+
+        border:
+            1px solid rgba(255,255,255,0.15);
+
+        border-radius: 20px;
+
+        padding: 24px;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.35);
+
+        backdrop-filter: blur(14px);
+
+        -webkit-backdrop-filter: blur(14px);
+
+        margin-bottom: 20px;
+    }
+
+
+    .glass-card:hover {
+
+        border-color:
+            rgba(255,255,255,0.23);
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,0.42);
+    }
+
+
+    /* =====================================================
+       SECTION HEADERS
+       ===================================================== */
+
+    .section-title {
+
+        font-size: 20px;
+
+        font-weight: 700;
+
+        color: white;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* =====================================================
+       API STATUS
+       ===================================================== */
 
     .api-status {
 
@@ -201,6 +286,7 @@ st.markdown(
         font-weight: 600;
     }
 
+
     .status-dot {
 
         width: 9px;
@@ -215,37 +301,132 @@ st.markdown(
             0 0 10px rgba(34,197,94,0.8);
     }
 
-    /* METRICS */
+
+    /* =====================================================
+       METRICS
+       ===================================================== */
 
     [data-testid="stMetric"] {
 
         background:
-            rgba(255,255,255,0.08);
+            rgba(255,255,255,0.07);
 
         border:
-            1px solid rgba(255,255,255,0.18);
+            1px solid rgba(255,255,255,0.17);
 
-        padding: 14px;
+        padding: 16px;
 
         border-radius: 16px;
 
         box-shadow:
-            0 5px 18px rgba(0,0,0,0.35);
+            0 6px 20px rgba(0,0,0,0.30);
+
+        backdrop-filter: blur(10px);
     }
 
-    /* SLIDERS */
+
+    [data-testid="stMetricLabel"] {
+
+        color: #cbd5e1 !important;
+    }
+
+
+    [data-testid="stMetricValue"] {
+
+        color: white !important;
+    }
+
+
+    /* =====================================================
+       INPUT CONTROLS
+       ===================================================== */
 
     .stSlider > div {
 
         border:
-            1px solid rgba(255,255,255,0.18);
+            1px solid rgba(255,255,255,0.16);
 
         border-radius: 12px;
 
-        padding: 6px;
+        padding: 7px;
+
+        background:
+            rgba(255,255,255,0.025);
     }
 
-    /* BLOCK PULSE */
+
+    /* =====================================================
+       BUTTON
+       ===================================================== */
+
+    .stButton > button {
+
+        border-radius: 12px;
+
+        border:
+            1px solid rgba(255,255,255,0.20);
+
+        background:
+            rgba(59,130,246,0.20);
+
+        color: white;
+
+        font-weight: 700;
+
+        padding: 10px 18px;
+
+        transition:
+            all 0.2s ease;
+    }
+
+
+    .stButton > button:hover {
+
+        border-color:
+            rgba(96,165,250,0.60);
+
+        background:
+            rgba(59,130,246,0.32);
+
+        transform:
+            translateY(-1px);
+
+        box-shadow:
+            0 8px 20px rgba(0,0,0,0.30);
+    }
+
+
+    /* =====================================================
+       DATAFRAME
+       ===================================================== */
+
+    [data-testid="stDataFrame"] {
+
+        border:
+            1px solid rgba(255,255,255,0.14);
+
+        border-radius: 14px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 6px 20px rgba(0,0,0,0.25);
+    }
+
+
+    /* =====================================================
+       ALERT BOXES
+       ===================================================== */
+
+    [data-testid="stAlert"] {
+
+        border-radius: 14px;
+    }
+
+
+    /* =====================================================
+       BLOCK PULSE
+       ===================================================== */
 
     .pulse-container {
 
@@ -260,6 +441,7 @@ st.markdown(
         margin-bottom: 20px;
     }
 
+
     .pulse {
 
         width: 120px;
@@ -273,6 +455,7 @@ st.markdown(
 
         position: relative;
     }
+
 
     .pulse::before,
     .pulse::after {
@@ -294,27 +477,75 @@ st.markdown(
             pulseAnim 1.8s infinite;
     }
 
+
     .pulse::after {
-        animation-delay: 0.9s;
+
+        animation-delay:
+            0.9s;
     }
+
 
     @keyframes pulseAnim {
 
         0% {
-            transform: scale(0.6);
-            opacity: 0.7;
+
+            transform:
+                scale(0.6);
+
+            opacity:
+                0.7;
         }
 
         70% {
-            transform: scale(2.6);
-            opacity: 0;
+
+            transform:
+                scale(2.6);
+
+            opacity:
+                0;
         }
 
         100% {
-            opacity: 0;
+
+            opacity:
+                0;
         }
 
     }
+
+
+    /* =====================================================
+       DASHBOARD CARD
+       ===================================================== */
+
+    .dashboard-card {
+
+        background:
+            rgba(255,255,255,0.045);
+
+        border:
+            1px solid rgba(255,255,255,0.14);
+
+        border-radius: 20px;
+
+        padding: 24px;
+
+        margin-top: 10px;
+
+        margin-bottom: 20px;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.32);
+
+        backdrop-filter: blur(12px);
+
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .custom-footer {
 
@@ -338,18 +569,24 @@ st.markdown(
 # =========================================================
 #
 # IMPORTANT:
-# NO HTML IS USED HERE.
-# This prevents the <div> / <p> tags from ever appearing
-# on the frontend.
+# Header text uses ONLY native Streamlit Markdown.
+# No HTML tags are used here.
 # =========================================================
 
 st.markdown(
-    "## 🔐 Real-Time Account Takeover Detection"
-)
+    """
+    <div class="hero-card">
+        <div class="hero-title">
+            🔐 Real-Time Account Takeover Detection
+        </div>
 
-st.markdown(
-    "Production-grade risk engine with strict rules, "
-    "anomaly detection, and decision intelligence."
+        <div class="hero-subtitle">
+            Production-grade risk engine with strict rules,
+            anomaly detection, and decision intelligence.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 
@@ -399,7 +636,15 @@ left, right = st.columns(
 
 with left:
 
-    st.markdown("### 🧾 Login Event Input")
+    st.markdown(
+        """
+        <div class="glass-card">
+            <div class="section-title">
+                🧾 Login Event Input
+            </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     failed_attempts = st.slider(
         "Failed Attempts",
@@ -450,6 +695,11 @@ with left:
         use_container_width=True
     )
 
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
+
 
 # =========================================================
 # RISK RESULT
@@ -457,7 +707,15 @@ with left:
 
 with right:
 
-    st.markdown("### 🔍 Risk Evaluation Result")
+    st.markdown(
+        """
+        <div class="glass-card">
+            <div class="section-title">
+                🔍 Risk Evaluation Result
+            </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     if evaluate:
 
@@ -634,7 +892,9 @@ with right:
             # INPUT SUMMARY
             # -------------------------------------------------
 
-            st.markdown("### 📌 Input Summary")
+            st.markdown(
+                "### 📌 Input Summary"
+            )
 
             st.dataframe(
                 pd.DataFrame([payload]),
@@ -678,6 +938,11 @@ with right:
             "**Evaluate Login Risk** to analyze the login."
         )
 
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
+
 
 # =========================================================
 # MONITORING DASHBOARD
@@ -686,7 +951,14 @@ with right:
 st.markdown("---")
 
 st.markdown(
-    "### 📊 Monitoring Dashboard"
+    """
+    <div class="dashboard-card">
+        <div class="section-title">
+            📊 Monitoring Dashboard
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 
@@ -821,6 +1093,11 @@ else:
 st.markdown("---")
 
 st.markdown(
-    "Account Takeover Detection • "
-    "FastAPI Risk Engine + Streamlit Monitoring Interface"
+    """
+    <div class="custom-footer">
+        Account Takeover Detection •
+        FastAPI Risk Engine + Streamlit Monitoring Interface
+    </div>
+    """,
+    unsafe_allow_html=True
 )
